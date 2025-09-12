@@ -29,7 +29,10 @@ Check [resources.md](resources.md) for further details on what will be required 
 3. Datetime
 
 ### Homework:
-1. Family Tree Builder
+1. Family Tree
+   - Create a person class
+   - People should have parents and children (ensure that parents are older than children)
+   - Be able to display an entire family tree
 
 ## Day 3:
 1. The World Wide Web, and how it's made
