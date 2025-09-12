@@ -6,9 +6,9 @@ Check [resources.md](resources.md) for further details on what will be required 
 > [link](intro/day1/)
 1. Common Data [Types/Structures](intro/data_types/) (and their various names)
 2. [conditionals](intro/data_flows/conditionals.py) and [loops](intro/data_flows/loops.py)
-3. Functions
+3. [Functions](intro/data_flows/functions.py)
 4. Input/Output (I/O, print(), input())
-5. Random Numbers
+5. [Random](intro/std/random.py) Numbers
 
 ### Homework:
 1. **Fibonnacci**
