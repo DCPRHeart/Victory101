@@ -1,34 +1,17 @@
-import time
-
 #Your "first" python program!
 
-a: int = 1
-b: float = 1000
+# The print function outputs text to the terminal
+# The text to be printed is enclosed in quotation marks ("text1" or 'text2'), aka a string
+print("Hello, World!")
 
-c: bool = a <= b
-d: str = "This is a String"
+# further arguments can be passed to print to modify its behavior
+print("Also", "Hello", "World", sep=", ", end="!\n")
 
-x: list = [1,2,3]
-str.join(",", x)
-y: dict = {
-    "thing1":"This is a thing",
-    "thing2": 2}
-z: tuple = ("1","2",3)
+# the input function allows you to take input from the user, and returns it as a string
+name = input("What is your name?\n") #\n creates a new line
+print("Hello, " + name + "!")
 
-print("Hello World")
-
-x = int(input("Enter Any Number:"))
-print()
-#for, while loops
-# while a <= x:
-#     print(a)
-#     a += 1
-
-for i in range(0,min(20, x)):
-    time.sleep(0.5)
-    # if (i>20):
-    #     break
-    #endif
-    print(i+1)
-
-#endwhile
+#Run this file using the command:
+# python helloworld.py
+# or
+# py helloworld.py
