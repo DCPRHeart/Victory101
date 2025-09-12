@@ -6,5 +6,9 @@ Check [resources.md](resources.md) for further details on what will be required 
 1. Common Data Types/Structures (and their various names)
 2. Variables and loops
 3. Functions
-4. Input/Output (I/O)
-5. Random numbers
+4. Input/Output (I/O, print(), input())
+
+### Homework:
+ - Create Recursive Fibonacci function
+ - - Take a number as input
+ - - Return a list of fibonacci numbers smaller than the inputed number
