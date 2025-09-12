@@ -18,6 +18,8 @@ print(s.split("s"))
 x_list: list = [1,2,3,"123"]
 z_tuple: tuple = ("a","b","c") #immutable
 
+x_list += [24]
+x_list.append(25)
 x_list[0] = 100 #works
 #z_tuple[0] = 1 #throws error
 listToString(x_list)
