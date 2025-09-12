@@ -15,3 +15,6 @@ print("Hello, " + name + "!")
 # python helloworld.py
 # or
 # py helloworld.py
+
+#make sure you are in the same directory as this file when you run it
+#you can also run this file in an IDE like VSCode

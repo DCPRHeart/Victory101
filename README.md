@@ -4,11 +4,34 @@ Check [resources.md](resources.md) for further details on what will be required 
 
 ## Day 1
 1. Common Data Types/Structures (and their various names)
-2. Variables and loops
+2. Variables, conditionals, and loops
 3. Functions
 4. Input/Output (I/O, print(), input())
+5. Random Numbers
 
 ### Homework:
- - Create Recursive Fibonacci function
- - - Take a number as input
- - - Return a list of fibonacci numbers smaller than the inputed number
+1. **Fibonnacci**
+   - Create recursive fibonnacci function
+   - Take a number as input
+   - Return a list of n fibonnaci numbers \[f(1),f(2)...f(n)]
+2. **Guessing Game**
+   - Take input from user, check against random number from 0-100
+   - Tell the user if they are hot cold or correct
+   - if not correct, prompt them to guess again
+3. **String Reverse**
+   - (Optional) try to find as many ways as possible to reverse a string.
+   - You must use what you know from [intro/data_types/str.py] and [intro/data_flows/loops.py]
+
+## Day 2:
+1. Writing to files
+2. Classes and Objects
+3. Datetime
+
+### Homework:
+1. Family Tree Builder
+
+## Day 3:
+1. The World Wide Web, and how it's made
+2. What is HTML (Hyper Text Markup Language)?
+3. What is CSS (Cascading Style Sheets)?
+4. Request<->Response framework
