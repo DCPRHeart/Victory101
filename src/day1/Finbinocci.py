@@ -1,1 +1,0 @@
-# Homework Assignment Day 1
