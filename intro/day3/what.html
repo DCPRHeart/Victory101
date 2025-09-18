@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to HTML</title>
+
+</head>
+<body>
+    <header>
+        <h1>Key Features of HTML</h1>
+    </header>
+    <main>
+        <section>
+            <h2>1. Structure</h2>
+            <p>HTML provides the basic structure of web pages using elements like <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and more.</p>
+
+            <pre>
+&lt;header&gt;Header&lt;/header&gt;
+&lt;main&gt;Main content&lt;/main&gt;
+&lt;footer&gt;Footer&lt;/footer&gt;
+            </pre>
+            <aside>
+            <h3>Other Semantic Elements</h3>
+            <p>HTML5 introduces semantic elements like <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;aside&gt;</code> for better structure and accessibility.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>2. Text Formatting</h2>
+            <p>HTML allows formatting text with elements such as <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for headings, <code>&lt;p&gt;</code> for paragraphs, <code>&lt;strong&gt;</code> for bold, and <code>&lt;em&gt;</code> for italics.</p>
+            
+            <h3>Heading Example3</h3>
+            <h4>Heading Example4</h4>
+            <h5>Heading Example5</h5>
+            <p>This is a <strong>bold</strong> word and this is <em>italic</em> text.</p>
+        </section>
+        <section>
+            <h2>3. Links and Images</h2>
+            <p>Use <code>&lt;a&gt;</code> to create hyperlinks and <code>&lt;img&gt;</code> to display images.</p>
+            
+            <a href="https://www.example.com">Visit Example.com</a><br>
+            <img src="https://via.placeholder.com/100" alt="Sample Image">
+        </section>
+        <section>
+            <h2>4. Lists</h2>
+            <p>HTML supports ordered (<code>&lt;ol&gt;</code>) and unordered (<code>&lt;ul&gt;</code>) lists, as well as definition lists (<code>&lt;dl&gt;</code>).</p>
+            
+            <ul>
+                <li>Unordered item 1</li>
+                <li>Unordered item 2</li>
+                <ul>
+                    <li>Indented Unorderd Item 2.a</li>
+                </ul>
+            </ul>
+            <ol>
+                <li>Ordered item 1</li>
+                <li>Ordered item 2</li>
+            </ol>
+        </section>
+        <section>
+            <h2>5. Forms</h2>
+            <p>Collect user input with forms using <code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code>, and more.</p>
+            
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120"><br><br>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Select...</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select><br><br>
+
+                <label>Subscribe to newsletter:</label>
+                <input type="checkbox" id="subscribe" name="subscribe">
+                <label for="subscribe">Yes</label><br><br>
+
+                <label>Preferred Contact Method:</label>
+                <input type="radio" id="contact-email" name="contact" value="email">
+                <label for="contact-email">Email</label>
+                <input type="radio" id="contact-phone" name="contact" value="phone">
+                <label for="contact-phone">Phone</label><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="30" placeholder="Type your message"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+        <section>
+            <h2>6. Multimedia</h2>
+            <p>Embed audio and video using <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements.</p>
+            
+            <audio controls>
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <br>
+            <video width="200" controls>
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Introduction to HTML</p>
+    </footer>
+</body>
+</html>

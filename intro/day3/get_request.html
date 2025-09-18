@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET Request Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+        form { margin-bottom: 2em; }
+        label { display: block; margin-bottom: 0.5em; }
+        input[type="text"] { width: 60%; padding: 0.5em; }
+        button { padding: 0.5em 1em; }
+        .section { background: #fff; padding: 1em; margin-bottom: 1em; border-radius: 5px; box-shadow: 0 2px 6px #0001; }
+        pre { background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto; }
+        h2 { margin-top: 0; }
+    </style>
+</head>
+<body>
+    <form id="requestForm" autocomplete="off">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required placeholder="https://example.com">
+        <button type="submit">Send Request</button>
+    </form>
+
+    <div class="section">
+        <h2>Request Headers</h2>
+        <pre id="reqHeaders"></pre>
+    </div>
+
+    <div class="section">
+        <h2>Response Headers</h2>
+        <pre id="resHeaders"></pre>
+    </div>
+    <div class="section">
+        <h2>Response Body</h2>
+        <pre id="resPayload"></pre>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('requestForm');
+            const urlInput = document.getElementById('url');
+            const reqHeadersEl = document.getElementById('reqHeaders');
+            const resHeadersEl = document.getElementById('resHeaders');
+            const resPayloadEl = document.getElementById('resPayload');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Clear previous results
+                reqHeadersEl.textContent = '';
+                resHeadersEl.textContent = '';
+                resPayloadEl.textContent = '';
+
+                const url = urlInput.value.trim();
+                if (!url) return;
+
+                // Validate URL
+                let parsedUrl;
+                try {
+                    parsedUrl = new URL(url);
+                } catch {
+                    resHeadersEl.textContent = 'Error: Invalid URL';
+                    return;
+                }
+
+                // Only allow http(s) protocols
+                if (!/^https?:$/.test(parsedUrl.protocol)) {
+                    resHeadersEl.textContent = 'Error: Only HTTP and HTTPS protocols are supported.';
+                    return;
+                }
+
+                // Use a public CORS proxy for demo/testing purposes
+                const corsProxy = 'https://corsproxy.io/?';
+                const fetchUrl = corsProxy + encodeURIComponent(parsedUrl.href);
+
+                const requestHeaders = {
+                    'Accept': 'text/html'
+                };
+
+                // Show request headers
+                reqHeadersEl.textContent = JSON.stringify(requestHeaders, null, 2);
+
+                try {
+                    const response = await fetch(fetchUrl, {
+                        method: 'GET',
+                        headers: requestHeaders,
+                        mode: 'cors',
+                        credentials: 'omit',
+                        cache: 'no-store'
+                    });
+
+                    // Show status code and status text
+                    const resHeadersObj = {
+                        status: response.status,
+                        statusText: response.statusText
+                    };
+                    response.headers.forEach((value, key) => {
+                        resHeadersObj[key] = value;
+                    });
+                    resHeadersEl.textContent = JSON.stringify(resHeadersObj, null, 2);
+
+                    // Get response payload (HTML)
+                    const text = await response.text();
+                    resPayloadEl.textContent = text;
+                } catch (err) {
+                    resHeadersEl.textContent = 'Network Error: ' + (err.message || err);
+                    resPayloadEl.textContent = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

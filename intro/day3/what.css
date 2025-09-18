@@ -1,0 +1,149 @@
+/* CSS Key Concepts Example */
+
+/* 1. HTML Selectors, aka: "tags" */
+body {
+    background-color: #f8b9a4;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Classes and IDs */
+.header {
+    color: #2c3e50; /* specifies text color */
+    text-align: center;
+    padding: 20px;
+}
+
+#main-content {
+    background: #fff;
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* ... all three can be stacked */
+div#main-content.header div#something {
+    background: linear-gradient(135deg, #ffb347 0%, #ffccff 100%);
+    border: 3px dashed #8e44ad;
+    color: #1abc9c;
+}
+
+
+/* Typography */
+h1, h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 5. Pseudo-classes */
+a:hover {
+    color: #ffcc4a;
+    text-decoration: underline;
+}
+
+/* Box Model */
+.box-example {
+    border: 2px solid #3498db;
+    padding: 16px;
+    margin: 16px 0;
+    box-sizing: border-box;
+}
+
+/* Flexbox Example */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: #feffd9;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.flex-item {
+    background: #c9d2f7;
+    padding: 12px 24px;
+    border-radius: 4px;
+    flex: 1 1 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Grid Example */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background: #a8ffd7;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.grid-item {
+    background: #ffbcf0;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #b39ddb;
+}
+
+/* Table Example */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+    margin: 24px 0;
+}
+
+table th,
+table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+table th {
+    background: #f6e9ff;
+    color: #6c3483;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #d1b3ff;
+}
+
+table tr {
+    transition: background 0.2s;
+}
+
+table tbody tr:nth-child(even) {
+    background: #faf6ff;
+}
+
+table tbody tr:hover {
+    background: #ffe6fa;
+}
+
+table td {
+    border-bottom: 1px solid #f0e6ff;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+/* 6. Responsive Design */
+@media (max-width: 600px) {
+    #main-content {
+        padding: 10px;
+        margin: 10px;
+    }
+}
