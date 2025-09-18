@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>POST Response Demo</title>
+	<style>
+		body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+		form { margin-bottom: 2em; }
+		label { display: block; margin-bottom: 0.5em; }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        input[type="date"],
+        input[type="color"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 60%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        input[type="color"]:focus,
+        input[type="file"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0078d7;
+            outline: none;
+        }
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: auto;
+            margin-right: 0.5em;
+            vertical-align: middle;
+        }
+        button {
+            padding: 0.5em 1em;
+            background: #0078d7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        button:hover, button:focus {
+            background: #005fa3;
+        }
+		.section { background: #fff; padding: 1em; margin-bottom: 1em; border-radius: 5px; box-shadow: 0 2px 6px #0001; }
+		pre { background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto; }
+		h2 { margin-top: 0; }
+	</style>
+</head>
+<body>
+    
+	<div class="section">
+		<h2>Received POST Data</h2>
+		<pre id="postData"></pre>
+	</div>
+	   <form id="postForm" method="POST" autocomplete="off">
+           <p>
+		   <button type="submit">Submit</button>
+           </p>
+		   <label for="name">Name:</label>
+		   <input type="text" id="name" name="name">
+
+		   <label for="email">Email:</label>
+		   <input type="email" id="email" name="email">
+
+		   <label for="age">Age:</label>
+		   <input type="number" id="age" name="age" min="0" max="120">
+
+		   <label for="password">Password:</label>
+		   <input type="password" id="password" name="password">
+
+		   <label for="bio">Bio:</label>
+		   <textarea id="bio" name="bio" rows="3"></textarea>
+
+		   <label for="gender">Gender:</label>
+		   <select id="gender" name="gender">
+			   <option value="">--Select--</option>
+			   <option value="male">Male</option>
+			   <option value="female">Female</option>
+			   <option value="other">Other</option>
+		   </select>
+
+		   <label>Favorite Color:</label>
+		   <input type="color" id="color" name="color">
+
+		   <label>Subscribe to newsletter:</label>
+		   <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+
+		   <label>Preferred Contact:</label>
+		   <input type="radio" id="contact_email" name="contact" value="email">
+		   <label for="contact_email" style="display:inline;">Email</label>
+		   <input type="radio" id="contact_phone" name="contact" value="phone">
+		   <label for="contact_phone" style="display:inline;">Phone</label>
+
+		   <label for="dob">Date of Birth:</label>
+		   <input type="date" id="dob" name="dob">
+
+		   <label for="profilePic">Profile Picture:</label>
+		   <input type="file" id="profilePic" name="profilePic">
+           <p>
+		   <button type="submit">Submit</button>
+           </p>
+	   </form>
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const form = document.getElementById('postForm');
+			const postDataEl = document.getElementById('postData');
+
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				postDataEl.textContent = '';
+				   const formData = new FormData(form);
+				   const dataObj = {};
+				   for (const [key, value] of formData.entries()) {
+					   // For file input, show file name(s) instead of [object File]
+					   if (form.elements[key] && form.elements[key].type === 'file') {
+						   if (form.elements[key].files.length > 0) {
+							   dataObj[key] = Array.from(form.elements[key].files).map(f => f.name);
+						   } else {
+							   dataObj[key] = [];
+						   }
+					   } else {
+						   dataObj[key] = value;
+					   }
+				   }
+				   postDataEl.textContent = JSON.stringify(dataObj, null, 2);
+			});
+		});
+	</script>
+</body>
+</html>
