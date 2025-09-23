@@ -1,17 +1,46 @@
-{%extends "index.html"%}
+{% extends "index.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/static/colors.css">
+{% endblock styles %}
+
 {% block content %}
-    Hello, World
+    <h1>Form</h1>
     <form method="POST">
         <p>
             <label for="name"> First Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your first name">
+            <input type="text" id="name" name="name" title="Fill out First Name" placeholder="Enter your first name" required>
         </p>
         <p>
             <label for="last"> Last Name:</label>
-            <input type="text" id="last" name="last" placeholder="Enter your last name">
+            <input type="text" id="last" name="last" title="Fill out Last Name" placeholder="Enter your last name" required>
+        </p>
+        <p>
+            <label for="color"> Favorite Color:</label>
+            <select id="color" name="color" required>
+                <option value="">Choose a color...</option>
+                <option class="red" value="red">Red</option>
+                <option class="orange" value="orange">Orange</option>
+                <option class="yellow" value="yellow">Yellow</option>
+                <option class="green" value="green">Green</option>
+                <option class="blue" value="blue">Blue</option>
+                <option class="purple" value="purple">Purple</option>
+            </select>
+        </p>
+        <p>
+            <label for="band">Favorite Band:</label>
+            <input type="text" id="band" name="band" placeholder="e.g. ACDC" required>
+        </p>
+        <p>
+            <label for="food">Least Favorite Food:</label>
+            <input type="text" id="food" name="food" placeholder="e.g. cherries" required>
         </p>
         <button>
-            submit
+            Submit
         </button>
+        {% if success %}
+            <p class="success"> This form was successfully submitted! </p>
+        {% else %}
+        {% endif %}
     </form>
 {% endblock %}

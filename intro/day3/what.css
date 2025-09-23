@@ -1,18 +1,22 @@
 /* CSS Key Concepts Example */
 
 /* 1. HTML Selectors, aka: "tags" */
+/* Apply styles to <body></body> in HTML*/
 body {
-    background-color: #f8b9a4;
+    background-color: hsl(15, 86%, 81%);
     font-family: 'Courier New', Courier, monospace;
 }
 
 /* Classes and IDs */
+/* Refrences <any class="header"> </any> */
 .header {
     color: #2c3e50; /* specifies text color */
     text-align: center;
     padding: 20px;
+    margin: 20px 0;
 }
 
+/* Refrences <any id="main-content"></any>*/
 #main-content {
     background: #fff;
     margin: 30px auto;
@@ -22,6 +26,7 @@ body {
 }
 
 /* ... all three can be stacked */
+/* Refrences */
 div#main-content.header div#something {
     background: linear-gradient(135deg, #ffb347 0%, #ffccff 100%);
     border: 3px dashed #8e44ad;

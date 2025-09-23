@@ -1,0 +1,27 @@
+nav {
+   display: flex;
+   padding-top: 10px;
+   gap:10px;
+   width: 100%;
+}
+
+a.nav-link {
+    /*Define some styles*/
+    background-color: #3e9fc0;
+    color: #000;
+    padding: 10px 40px;
+    border-radius: 5px;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.success {
+    font-weight: bold;
+    background-color: rgb(63, 178, 63);
+    padding: 10px;
+    border-radius: 3px;
+    width: fit-content;
+}

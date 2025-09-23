@@ -1,0 +1,25 @@
+
+option.red {
+    background-color: red;
+    color: white;
+}
+option.orange {
+    background-color: orange;
+    color: rgb(0, 0, 0);
+}
+option.yellow {
+    background-color: yellow;
+    color: black;
+}
+option.green {
+    background-color: rgb(26, 168, 26);
+    color: white;
+}
+option.blue {
+    background-color: blue;
+    color: white;
+}
+option.purple {
+    background-color: rgb(169, 22, 169);
+    color: white;
+}
