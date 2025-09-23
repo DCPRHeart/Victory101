@@ -1,0 +1,17 @@
+{%extends "index.html"%}
+{% block content %}
+    Hello, World
+    <form method="POST">
+        <p>
+            <label for="name"> First Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your first name">
+        </p>
+        <p>
+            <label for="last"> Last Name:</label>
+            <input type="text" id="last" name="last" placeholder="Enter your last name">
+        </p>
+        <button>
+            submit
+        </button>
+    </form>
+{% endblock %}
