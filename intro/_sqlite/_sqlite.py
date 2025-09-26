@@ -41,3 +41,42 @@ cur.executemany("INSERT INTO move VALUES(?, ?, ?)", data)
 #sequentially print out all the data in the table:
 for row in cur.execute("SELECT name, age FROM pet ORDER BY age"):
     print(row)
+
+# Add a new column to the pet table
+cur.execute("ALTER TABLE pet ADD COLUMN owner TEXT")
+con.commit()
+
+# Update data in the table
+cur.execute("UPDATE pet SET owner = 'Alice' WHERE name = 'Monty'")
+cur.execute("UPDATE pet SET owner = 'Bob' WHERE name = 'Fern'")
+con.commit()
+
+# Delete a row from the table
+cur.execute("DELETE FROM pet WHERE name = 'Camel'")
+con.commit()
+
+# Use parameterized queries to prevent SQL injection
+pet_type = 'cat'
+cur.execute("SELECT * FROM pet WHERE type = ?", (pet_type,))
+print("Cats in the database:", cur.fetchall())
+
+# Use transactions (rollback example)
+try:
+    cur.execute("BEGIN")
+    cur.execute("INSERT INTO pet VALUES ('Test', 'test', 1, 1, 'Tester')")
+    raise Exception("Simulated error")
+    con.commit()
+except Exception:
+    con.rollback()
+    print("Transaction rolled back due to error.")
+
+# Create an index to speed up queries
+cur.execute("CREATE INDEX IF NOT EXISTS idx_pet_type ON pet(type)")
+con.commit()
+
+# Use aggregate functions
+cur.execute("SELECT type, COUNT(*) FROM pet GROUP BY type")
+print("Count of pets by type:", cur.fetchall())
+
+# Close the connection
+con.close()
