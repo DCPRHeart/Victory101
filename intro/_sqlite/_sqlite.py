@@ -7,7 +7,14 @@ con = sqlite3.connect("example.db") #establish connection to a databse
 cur = con.cursor()
 
 #creates a new table
-cur.execute("CREATE TABLE pet(name, type, age, is_alive)")
+cur.execute("""
+    CREATE TABLE pet (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        type TEXT,
+        age INTEGER,
+        is_alive BOOLEAN
+    )""")
 
 #get table names on the database
 res = cur.execute("SELECT name FROM sqlite_master")
@@ -18,7 +25,7 @@ res = cur.execute("SELECT name FROM sqlite_master WHERE name='spam'")
 
 #Insert several entries into the pet table
 cur.execute("""
-    INSERT INTO pet VALUES
+    INSERT INTO pet (name, type, age, is_alive) VALUES
         ('Monty', 'guniea pig', 85, True),
         ('Fern', 'rabbit', 2, True)
 """) #indentation is for readablity.
@@ -52,7 +59,7 @@ cur.execute("UPDATE pet SET owner = 'Bob' WHERE name = 'Fern'")
 con.commit()
 
 # Delete a row from the table
-cur.execute("DELETE FROM pet WHERE name = 'Camel'")
+cur.execute("DELETE FROM pet WHERE age > 20")
 con.commit()
 
 # Use parameterized queries to prevent SQL injection
@@ -62,12 +69,14 @@ print("Cats in the database:", cur.fetchall())
 
 # Use transactions (rollback example)
 try:
+    cur.execute("INSERT INTO pet VALUES ('Test', 'test', 1, False)") #would still execute after rollback
     cur.execute("BEGIN")
     cur.execute("INSERT INTO pet VALUES ('Test', 'test', 1, 1, 'Tester')")
-    raise Exception("Simulated error")
+    #raise Exception("Simulated error")
     con.commit()
 except Exception:
     con.rollback()
+    con.commit()
     print("Transaction rolled back due to error.")
 
 # Create an index to speed up queries
@@ -77,6 +86,9 @@ con.commit()
 # Use aggregate functions
 cur.execute("SELECT type, COUNT(*) FROM pet GROUP BY type")
 print("Count of pets by type:", cur.fetchall())
+
+#Ordered select by age
+cur.execute("SELECT * FROM pet ORDER BY age ASC")
 
 # Close the connection
 con.close()
