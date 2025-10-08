@@ -1,0 +1,20 @@
+{
+    "StorageData": [
+        {
+            "id": "87609255-d8c7-4d7d-ab9b-a1ff72b803b2",
+            "first": "David",
+            "last": "Richman",
+            "color": "green",
+            "band": "Gray Havens",
+            "food": "Tomato Juice"
+        },
+        {
+            "id": "0836ec9b-13c5-411d-b2d1-2061119fe2d6",
+            "first": "Victoria",
+            "last": "Sant",
+            "color": "blue",
+            "band": "ACDC",
+            "food": "hotdogs"
+        }
+    ]
+}

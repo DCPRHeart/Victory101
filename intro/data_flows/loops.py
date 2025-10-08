@@ -20,5 +20,6 @@ count = 0
 while count < 5:
     print("While loop count:", count)
     count += 1  # Increment the count to avoid infinite loop
+    
 
 # Be careful with while loops to ensure the condition will eventually become false

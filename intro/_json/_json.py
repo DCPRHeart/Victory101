@@ -22,6 +22,10 @@ print(parsed_data)
 # Write JSON to a file
 with open("data.json", "w") as file_name:
     json.dump(data, file_name, indent=4)
+#equivilent to:
+file_name = open("data.json", "w")
+json.dump(data, file_name, indent=4)
+file_name.close()
 
 # Read JSON from a file
 with open("data.json", "r") as file_name:

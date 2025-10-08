@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/static/colors.css">
+{% endblock styles %}
+
+{% block content %}
+    {# user #}
+    {% if user %}
+        <h2>Name: {{user.first}} {{user.last}}</h2>
+        <p>Favorite Color: {{user.color}}</p>
+        <p>Favorite Band: {{user.band}}</p>
+        <p>Least Favorite Food: {{user.food}}</p>    
+    {% else %}
+        <p>User Not Found</p>
+    {% endif %}
+{% endblock %}
